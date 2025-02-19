@@ -25,6 +25,8 @@ jobs:
           
       - name: Add GitLab remote
         run: |
+          echo "${{ vars.GITLAB }}"
+          echo " ${{ env.GITLAB }} - ${{ env.GITLAB_USER_NAME}} - ${{vars.GITLAB.GITLAB_USER_NAME}}"
           echo "${{ vars.GITLAB_USER_NAME }}:${{ secrets.GITLAB_TOKEN }}@${{ vars.GITLAB_DOMAIN }}${{ vars.GITLAB_PATH }}"
           git remote add gitlab https://${{ vars.GITLAB_USER_NAME }}:${{ secrets.GITLAB_TOKEN }}@${{ vars.GITLAB_DOMAIN }}${{ vars.GITLAB_PATH }}
 
